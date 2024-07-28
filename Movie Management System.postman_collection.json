@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "7f8612c9-6c3c-4764-972c-107a22fd8805",
+		"name": "Movie Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19720127"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Watch-Movie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN1c3RvbWVyLjFAc2N0LmNvbSIsInN1YiI6Nywicm9sZSI6IkN1c3RvbWVyIiwiaWF0IjoxNzIyMTc2OTgwLCJleHAiOjE3MjIxODA1ODB9.Q-3VfDwws_pY_ILDw46JKkiraXY5FAW1iZecr9vRvWU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/7/watch-movie/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"7",
+								"watch-movie",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Watch-History",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN1c3RvbWVyLjFAc2N0LmNvbSIsInN1YiI6Nywicm9sZSI6IkN1c3RvbWVyIiwiaWF0IjoxNzIyMTc2OTgwLCJleHAiOjE3MjIxODA1ODB9.Q-3VfDwws_pY_ILDw46JKkiraXY5FAW1iZecr9vRvWU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/7/watch-history",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"7",
+								"watch-history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-All-Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"customer.3@sct.com\",\r\n    \"password\": \"customer3\",\r\n    \"age\": 15,\r\n    \"role\": \"Customer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"customer.1@sct.com\",\r\n    \"password\": \"customer1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register-Bulk",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"username\": \"manager.1@sct.com\",\r\n        \"password\": \"manager1\",\r\n        \"age\": 24,\r\n        \"role\": \"Manager\"\r\n    },\r\n    {\r\n        \"username\": \"manager.2@sct.com\",\r\n        \"password\": \"manager2\",\r\n        \"age\": 36,\r\n        \"role\": \"Manager\"\r\n    },\r\n    {\r\n        \"username\": \"manager.3@sct.com\",\r\n        \"password\": \"manager3\",\r\n        \"age\": 18,\r\n        \"role\": \"Manager\"\r\n    },\r\n    {\r\n        \"username\": \"customer.1@sct.com\",\r\n        \"password\": \"customer1\",\r\n        \"age\": 24,\r\n        \"role\": \"Customer\"\r\n    },\r\n    {\r\n        \"username\": \"customer.2@sct.com\",\r\n        \"password\": \"customer2\",\r\n        \"age\": 12,\r\n        \"role\": \"Customer\"\r\n    },\r\n    {\r\n        \"username\": \"customer.3@sct.com\",\r\n        \"password\": \"customer3\",\r\n        \"age\": 16,\r\n        \"role\": \"Customer\"\r\n    },\r\n    {\r\n        \"username\": \"customer.4@sct.com\",\r\n        \"password\": \"customer4\",\r\n        \"age\": 20,\r\n        \"role\": \"Customer\"\r\n    },\r\n    {\r\n        \"username\": \"customer.5@sct.com\",\r\n        \"password\": \"customer5\",\r\n        \"age\": 14,\r\n        \"role\": \"Customer\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/bulkInsert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"bulkInsert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Create-Movie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbmFnZXIuMUBzY3QuY29tIiwic3ViIjo1LCJyb2xlIjoiTWFuYWdlciIsImlhdCI6MTcyMjA4OTI3NiwiZXhwIjoxNzIyMDkyODc2fQ.qH1Y2Rp4ypLa6NkUGVFFXbl_fzmE4t0JsCKtP0N7Iu8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Movie #3\",\r\n    \"description\": \"Here is the description of Movie #3\",\r\n    \"ageLimit\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create-Movies-Bulk",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"title\": \"MovieName1\",\r\n        \"description\": \"Description of MovieName1\",\r\n        \"ageLimit\": 15\r\n    },\r\n    {\r\n        \"title\": \"MovieName2\",\r\n        \"description\": \"Description of MovieName2\",\r\n        \"ageLimit\": 18\r\n    },\r\n    {\r\n        \"title\": \"MovieName3\",\r\n        \"description\": \"Description of MovieName3\",\r\n        \"ageLimit\": 13\r\n    },\r\n    {\r\n        \"title\": \"MovieName4\",\r\n        \"description\": \"Description of MovieName4\",\r\n        \"ageLimit\": 15\r\n    },\r\n    {\r\n        \"title\": \"MovieName5\",\r\n        \"description\": \"Description of MovieName5\",\r\n        \"ageLimit\": 13\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/bulkInsert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"bulkInsert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies?title=MovieName1&ageLimit=15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "MovieName1"
+								},
+								{
+									"key": "ageLimit",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Movie-By-Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Movie-By-Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shows",
+			"item": [
+				{
+					"name": "Create-Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbmFnZXIuMUBzY3QuY29tIiwic3ViIjo1LCJyb2xlIjoiTWFuYWdlciIsImlhdCI6MTcyMjA4OTI3NiwiZXhwIjoxNzIyMDkyODc2fQ.qH1Y2Rp4ypLa6NkUGVFFXbl_fzmE4t0JsCKtP0N7Iu8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2024-07-27\",\r\n    \"time\": \"22:00-00:00\",\r\n    \"hallNumber\": 4,\r\n    \"movieId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/shows",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create-Shows-Bulk",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"10:00-12:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 5\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"12:00-14:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 5\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"14:00-16:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 5\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"16:00-18:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 5\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"18:00-20:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 5\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"20:00-22:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 5\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"22:00-00:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 5\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"10:00-12:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 6\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"12:00-14:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 6\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"14:00-16:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 6\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"16:00-18:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 6\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"18:00-20:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 6\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"20:00-22:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 6\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"22:00-00:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 6\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"10:00-12:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 7\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"12:00-14:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 7\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"14:00-16:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 7\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"16:00-18:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 7\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"18:00-20:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 7\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"20:00-22:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 7\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"22:00-00:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 7\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"10:00-12:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 8\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"12:00-14:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 8\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"14:00-16:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 8\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"16:00-18:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 8\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"18:00-20:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 8\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"20:00-22:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 8\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"22:00-00:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 8\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"10:00-12:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 9\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"12:00-14:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 9\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"14:00-16:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 9\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"16:00-18:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 9\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"18:00-20:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 9\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"20:00-22:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 9\r\n    },\r\n    {\r\n        \"date\": \"2024-07-27\",\r\n        \"time\": \"22:00-00:00\",\r\n        \"hallNumber\": 1,\r\n        \"movieId\": 9\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/shows/bulkInsert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shows",
+								"bulkInsert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Shows",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/shows",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Show-By-Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/shows/56",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"shows",
+								"56"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "Buy-Ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN1c3RvbWVyLjJAc2N0LmNvbSIsInN1YiI6OCwicm9sZSI6IkN1c3RvbWVyIiwiaWF0IjoxNzIyMDkzNDcwLCJleHAiOjE3MjIwOTcwNzB9.2TVLzB_CFlGgNJZvI1aDWcMDeWOb8I8Ct5AqR4tGU44",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showId\": 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Post - Buy-Ticket: You can buy a ticket with a JSON body includes 'showId'."
+		}
+	]
+}
