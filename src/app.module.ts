@@ -9,13 +9,14 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { MoviesModule } from './modules/movies/movies.module';
 import { TicketsModule } from './modules/tickets/tickets.module';
+import { ShowsModule } from './modules/shows/shows.module';
 
 // Entities
 import { User } from './modules/users/entities/user.entity';
 import { Movie } from './modules/movies/entities/movie.entity';
 import { Show } from './modules/shows/entities/show.entity';
 import { Ticket } from './modules/tickets/entities/ticket.entity';
-import { ShowsModule } from './modules/shows/shows.module';
+
 
 @Module({
   imports: [
@@ -40,7 +41,8 @@ import { ShowsModule } from './modules/shows/shows.module';
     AuthModule, 
     UsersModule, 
     MoviesModule, 
-    TicketsModule, ShowsModule
+    TicketsModule,
+    ShowsModule
   ],
   controllers: [AppController],
   providers: [AppService],

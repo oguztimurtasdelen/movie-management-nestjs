@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
 import { Movie } from 'src/modules/movies/entities/movie.entity';
 import { Ticket } from "src/modules/tickets/entities/ticket.entity";
 
@@ -15,6 +15,9 @@ export class Show {
 
   @Column()
   hallNumber: number;
+
+  @Column()
+  movieId: number;
 
   @ManyToOne(() => Movie, (movie) => movie.shows)
   movie: Movie;

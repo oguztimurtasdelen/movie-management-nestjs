@@ -18,12 +18,25 @@ export class UsersController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Promise<User> {
-    return this.usersService.findOne(+id);
+  findOne(@Param('id') id: number): Promise<User> {
+    return this.usersService.findOne(id);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string): Promise<void> {
-    return this.usersService.remove(+id);
+  remove(@Param('id') id: number): Promise<void> {
+    return this.usersService.remove(id);
+  }
+
+  @Post(':userId/watch-movie/:movieId')
+  async watchMovie(
+    @Param('userId') userId: number,
+    @Param('movieId') movieId: number,
+  ) {
+    return this.usersService.watchMovie(Number(userId), Number(movieId));
+  }
+
+  @Get(':userId/watch-history')
+  async getWatchHistory(@Param('userId') userId: number) {
+    return this.usersService.getWatchHistory(Number(userId));
   }
 }

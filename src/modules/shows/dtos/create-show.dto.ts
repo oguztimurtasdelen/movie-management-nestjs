@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsDateString, IsString } from 'class-validator';
+import { IsNotEmpty, IsDateString, IsString, IsNumber } from 'class-validator';
 
 export class CreateShowDto {
   @IsNotEmpty()
@@ -10,10 +10,10 @@ export class CreateShowDto {
   time: string;
 
   @IsNotEmpty()
-  @IsString()
-  hall: string;
+  @IsNumber()
+  hallNumber: number;
 
   @IsNotEmpty()
-  @IsString()
-  movieId: string;
+  @IsNumber()
+  movieId: number;
 }

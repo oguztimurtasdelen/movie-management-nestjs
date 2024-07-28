@@ -17,8 +17,18 @@ export class MoviesService {
         return this.moviesRepository.save(movie);
     }
 
-    findAll(): Promise<Movie[]> {
-        return this.moviesRepository.find({ relations: ['shows'] });
+    async findAll(title: string, ageLimit: number): Promise<Movie[]> {
+        const queryBuilder = this.moviesRepository.createQueryBuilder('movie');
+
+        if (title) {
+        queryBuilder.andWhere('movie.title LIKE :title', { title: `%${title}%` });
+        }
+
+        if (ageLimit) {
+        queryBuilder.andWhere('movie.ageLimit >= :ageLimit', { ageLimit: ageLimit });
+        }
+
+        return await queryBuilder.getMany();
     }
 
     findOne(id: number): Promise<Movie> {
@@ -32,5 +42,9 @@ export class MoviesService {
 
     async remove(id: number): Promise<void> {
         await this.moviesRepository.delete(id);
+    }
+
+    bulkCreate(movies: Movie[]): Promise<Movie[]> {
+        return this.moviesRepository.save(movies);
     }
 }
